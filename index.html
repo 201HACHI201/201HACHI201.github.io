@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>☆ 희진의 드림 세계 ☆</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Noto+Sans+KR:wght@400;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+a{text-decoration:none;}
+
+body {
+  font-family:'DotGothic16','Noto Sans KR',monospace;
+  font-size:13px;
+  background-color:#fff0f8;
+  background-image:
+    radial-gradient(circle, #ffccee 1px, transparent 1px),
+    radial-gradient(circle, #cceeff 1px, transparent 1px);
+  background-size:28px 28px, 14px 14px;
+  background-position:0 0, 7px 7px;
+  color:#330033;
+  min-width:800px;
+}
+
+#rainbow-bar {
+  height:6px;
+  background:linear-gradient(90deg,#ff6666,#ffaa44,#ffee44,#66dd44,#44aaff,#aa66ff,#ff66cc,#ff6666);
+  background-size:200% 100%;
+  animation:rainbowMove 3s linear infinite;
+}
+@keyframes rainbowMove{0%{background-position:0% 0%}100%{background-position:200% 0%}}
+
+#header {
+  background:linear-gradient(180deg,#ffe4f5 0%,#fff0fa 60%,#e8f4ff 100%);
+  border-bottom:3px solid #ffaacc;
+  padding:12px 0 8px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+#header::before,#header::after{
+  content:'✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦ ★ ✦';
+  display:block;font-size:10px;color:#ffaacc;letter-spacing:4px;margin:2px 0;
+}
+#site-title {
+  font-size:28px;font-weight:900;letter-spacing:6px;
+  background:linear-gradient(90deg,#ff6666,#ff9933,#ffcc00,#66cc33,#3399ff,#9933ff,#ff66cc);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:rainbowMove 4s linear infinite;background-size:300% 100%;
+  display:inline-block;cursor:pointer;
+}
+#site-subtitle{font-size:12px;color:#9966aa;letter-spacing:3px;margin:4px 0 8px;}
+
+.deco-star{position:absolute;font-size:14px;animation:floatStar 3s ease-in-out infinite;pointer-events:none;}
+@keyframes floatStar{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-8px) rotate(20deg);}}
+
+.counter-box{
+  display:inline-block;background:#000055;border:2px inset #aaaaff;
+  padding:2px 10px;font-size:13px;color:#00ffcc;letter-spacing:3px;font-family:monospace;margin:4px;
+}
+
+#marquee-bar{
+  background:linear-gradient(90deg,#ffccee,#cceeff,#ffe4aa,#ccffee);
+  background-size:300% 100%;animation:rainbowMove 6s linear infinite;
+  border-top:2px dashed #ffaacc;border-bottom:2px dashed #ffaacc;
+  padding:4px 0;overflow:hidden;white-space:nowrap;
+}
+#marquee-inner{display:inline-block;animation:marquee 22s linear infinite;font-size:12px;color:#660055;letter-spacing:2px;}
+@keyframes marquee{0%{transform:translateX(100vw);}100%{transform:translateX(-100%)}}
+
+#layout{display:flex;gap:0;align-items:flex-start;padding:10px 10px 20px;}
+
+#sidebar{width:168px;min-width:168px;margin-right:10px;}
+.side-box{border:2px solid #ff99cc;background:#fff5fb;margin-bottom:10px;box-shadow:3px 3px 0 #ffccee;}
+.side-box-title{background:linear-gradient(90deg,#ff99cc,#ffbbdd);color:#fff;font-size:12px;font-weight:bold;padding:4px 8px;letter-spacing:2px;text-shadow:1px 1px 0 #cc6699;}
+.side-box-body{padding:6px 8px;}
+.side-menu a{display:block;color:#660055;font-size:12px;padding:3px 4px;border-bottom:1px dotted #ffccee;transition:background 0.15s;}
+.side-menu a:hover{background:#ffeeee;color:#ff3366;}
+.side-menu a::before{content:'▷ ';}
+
+.mini-chara{text-align:center;padding:8px;font-size:11px;color:#996699;line-height:1.7;}
+.chara-face{font-size:32px;display:block;animation:bounce 1.5s ease-in-out infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+#main{flex:1;min-width:0;}
+.panel{margin-bottom:12px;}
+.panel-head{padding:5px 10px;font-size:13px;font-weight:bold;letter-spacing:2px;color:#fff;text-shadow:1px 1px 0 rgba(0,0,0,0.2);}
+.panel-body{border:2px solid;border-top:none;padding:10px 12px;line-height:1.9;font-size:12px;}
+
+.panel-pink .panel-head{background:linear-gradient(90deg,#ff99bb,#ffbbdd);}
+.panel-pink .panel-body{border-color:#ff99bb;background:#fff5f8;}
+.panel-blue .panel-head{background:linear-gradient(90deg,#66aaff,#99ccff);}
+.panel-blue .panel-body{border-color:#66aaff;background:#f0f5ff;}
+.panel-yellow .panel-head{background:linear-gradient(90deg,#ffcc33,#ffee88);}
+.panel-yellow .panel-body{border-color:#ffcc33;background:#fffcf0;}
+.panel-green .panel-head{background:linear-gradient(90deg,#55cc88,#99eecc);}
+.panel-green .panel-body{border-color:#55cc88;background:#f0fff8;}
+.panel-purple .panel-head{background:linear-gradient(90deg,#9966ff,#cc99ff);}
+.panel-purple .panel-body{border-color:#9966ff;background:#f8f0ff;}
+.panel-earth .panel-head{background:linear-gradient(90deg,#3388cc,#55bbee);}
+.panel-earth .panel-body{border-color:#3388cc;background:#f0f8ff;}
+
+.notice-inner{background:linear-gradient(135deg,#fffbe8,#fff0f8);border:1px dashed #ffaacc;padding:8px 10px;margin-bottom:8px;font-size:12px;}
+.notice-inner::before{content:'NEW';background:#ff3366;color:#fff;font-size:9px;padding:1px 4px;margin-right:6px;font-weight:bold;}
+.blink{animation:blink 0.8s step-start infinite;color:#ff3366;font-weight:bold;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+.dc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;}
+.dc-card{border:2px solid #ffaacc;background:linear-gradient(180deg,#fff5fb,#ffe8f5);text-align:center;padding:8px 4px;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;box-shadow:2px 2px 0 #ffccee;}
+.dc-card:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #ffaacc;}
+.dc-img{width:64px;height:64px;background:linear-gradient(135deg,#ffe4f5,#e8f0ff);border:1px dashed #cc99cc;margin:0 auto 5px;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.dc-name{font-size:11px;color:#660055;font-weight:bold;}
+.dc-tag{font-size:10px;color:#9966aa;margin-top:2px;}
+
+.rel-table{width:100%;border-collapse:collapse;font-size:12px;}
+.rel-table th{background:linear-gradient(90deg,#9966ff,#cc99ff);color:#fff;padding:5px 8px;font-weight:bold;letter-spacing:1px;}
+.rel-table td{border:1px solid #cc99ff;padding:6px 8px;background:#fdf8ff;vertical-align:top;}
+.rel-table tr:hover td{background:#f5eeff;}
+
+.tl-wrap{position:relative;padding-left:24px;}
+.tl-wrap::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:repeating-linear-gradient(to bottom,#ff99cc 0px,#ff99cc 6px,#99ccff 6px,#99ccff 12px);}
+.tl-item{position:relative;margin-bottom:14px;}
+.tl-dot{position:absolute;left:-20px;top:2px;width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#ff99cc,#ff6699);border:2px solid #fff;box-shadow:0 0 0 2px #ff99cc;}
+.tl-date{font-size:10px;color:#9966aa;background:#fff0f8;display:inline-block;padding:1px 6px;border:1px solid #ffccee;margin-bottom:3px;}
+.tl-text{font-size:12px;color:#440033;line-height:1.7;}
+
+.gb-list{margin-bottom:12px;}
+.gb-entry{border-bottom:1px dotted #ffccee;padding:8px 4px;}
+.gb-header{display:flex;align-items:center;gap:8px;margin-bottom:3px;}
+.gb-num{background:#ff99cc;color:#fff;font-size:10px;padding:1px 5px;font-weight:bold;}
+.gb-author{font-size:12px;color:#993366;font-weight:bold;}
+.gb-date{font-size:10px;color:#aaaaaa;margin-left:auto;}
+.gb-msg{font-size:12px;color:#330033;line-height:1.7;padding-left:4px;}
+.gb-form{background:#fff8fd;border:1px dashed #ffaacc;padding:10px;}
+.gb-form label{font-size:11px;color:#993366;display:block;margin-bottom:2px;}
+.gb-form input,.gb-form textarea{width:100%;border:1px solid #ffaacc;background:#fff;font-family:inherit;font-size:12px;padding:4px 6px;color:#330033;margin-bottom:8px;outline:none;}
+.gb-form input:focus,.gb-form textarea:focus{border-color:#ff6699;}
+.gb-form textarea{height:60px;resize:vertical;}
+.btn-submit{background:linear-gradient(90deg,#ff99cc,#ff6699);color:#fff;border:none;font-family:inherit;font-size:12px;padding:5px 18px;cursor:pointer;box-shadow:2px 2px 0 #cc3366;font-weight:bold;letter-spacing:1px;}
+.btn-submit:hover{background:linear-gradient(90deg,#ff6699,#ff3366);}
+.btn-submit:active{transform:translate(2px,2px);box-shadow:none;}
+
+.earth-section{
+  background:linear-gradient(180deg,#001133 0%,#003366 40%,#0066aa 70%,#33aaee 100%);
+  border:2px solid #3399ff;padding:16px;text-align:center;
+  position:relative;overflow:hidden;min-height:180px;margin-bottom:12px;
+}
+.earth-obj{
+  display:inline-block;width:90px;height:90px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#88ddff,#1166cc 50%,#003388 100%);
+  box-shadow:inset -20px -15px 40px rgba(0,0,30,0.7),0 0 30px rgba(100,180,255,0.5);
+  position:relative;animation:floatE 6s ease-in-out infinite;cursor:pointer;
+}
+.earth-obj::before{content:'';position:absolute;top:28%;left:22%;width:25px;height:14px;background:rgba(100,220,130,0.7);border-radius:40% 60% 50% 50%;}
+.earth-obj::after{content:'';position:absolute;top:52%;left:48%;width:18px;height:10px;background:rgba(100,220,130,0.6);border-radius:50%;}
+@keyframes floatE{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.earth-caption{color:#aaddff;font-size:11px;margin-top:10px;letter-spacing:2px;text-shadow:0 0 8px #3399ff;}
+.e-star{position:absolute;color:#fff;font-size:10px;animation:twinkle 2s ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:1;}50%{opacity:0.2;}}
+
+.minigame-area{background:#000022;border:2px solid #3333ff;min-height:100px;display:flex;align-items:center;justify-content:center;color:#6666ff;font-size:13px;letter-spacing:2px;position:relative;overflow:hidden;cursor:pointer;}
+.minigame-area::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,50,100,0.15) 2px,rgba(0,50,100,0.15) 4px);}
+.minigame-area:hover{border-color:#6666ff;color:#aaaaff;}
+
+#secret{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(135deg,#000022,#110033);border:2px solid #cc66ff;box-shadow:0 0 40px rgba(150,0,255,0.5);padding:24px 32px;z-index:9999;text-align:center;min-width:280px;color:#e0ccff;}
+#secret h3{color:#ff99cc;font-size:14px;letter-spacing:3px;margin-bottom:12px;text-shadow:0 0 10px #ff66cc;}
+#secret p{font-size:12px;line-height:2;color:#ccbbee;}
+#secret-close{margin-top:16px;background:none;border:1px solid #9966cc;color:#cc99ff;font-family:inherit;font-size:12px;padding:4px 16px;cursor:pointer;letter-spacing:1px;}
+#secret-close:hover{background:rgba(150,0,255,0.2);}
+
+#footer{background:linear-gradient(90deg,#ffccee,#cceeff,#ffeedd,#ccffee);background-size:300% 100%;animation:rainbowMove 8s linear infinite;border-top:3px solid #ffaacc;text-align:center;padding:8px;font-size:11px;color:#660044;}
+
+.spark{position:fixed;pointer-events:none;z-index:9990;font-size:12px;animation:sparkUp 0.7s ease forwards;}
+@keyframes sparkUp{0%{opacity:1;transform:translateY(0) scale(1);}100%{opacity:0;transform:translateY(-28px) scale(0.5);}}
+
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:#ffe8f5;}
+::-webkit-scrollbar-thumb{background:linear-gradient(#ff99cc,#99ccff);border-radius:4px;}
+</style>
+</head>
+<body>
+
+<div id="secret">
+  <h3>✦ S E C R E T ✦</h3>
+  <p>세계의 끝에서도<br>이 페이지는 남아있다.<br><br>네 녀석이 여기까지 찾아올 줄<br>알고 있었다.</p>
+  <button id="secret-close">닫기</button>
+</div>
+
+<div id="rainbow-bar"></div>
+
+<div id="header">
+  <span class="deco-star" style="top:10px;left:40px;">✦</span>
+  <span class="deco-star" style="top:14px;left:80px;animation-delay:0.4s;color:#ffaacc;">★</span>
+  <span class="deco-star" style="top:8px;right:80px;animation-delay:0.8s;color:#aaccff;">✦</span>
+  <span class="deco-star" style="top:12px;right:40px;animation-delay:1.2s;">★</span>
+  <div id="site-title">☆ 희진의 드림 세계 ☆</div>
+  <div id="site-subtitle">― 세계의 끝에서, 꿈을 꾸다 ―</div>
+  <div class="counter-box">VISITOR : <span id="vcnt">000000</span></div>
+  &nbsp;
+  <div class="counter-box" style="font-size:11px;">since 20xx.xx.xx</div>
+</div>
+
+<div id="marquee-bar">
+  <div id="marquee-inner">
+    ✦ 어서 오세요! 희진의 드림 홈페이지입니다 ✦ &nbsp;&nbsp;&nbsp; ★ 드림주 / 드림캐 소개 / 관계성 / 타임라인 수록 ★ &nbsp;&nbsp;&nbsp; ♪ BGM 재생 중 &nbsp;&nbsp;&nbsp; ☆ 방명록 남겨주세요! ☆ &nbsp;&nbsp;&nbsp; ✦ 세계의 끝에서, 나는 여기 있다 ✦ &nbsp;&nbsp;&nbsp;
+  </div>
+</div>
+
+<div id="layout">
+  <div id="sidebar">
+
+    <div class="side-box">
+      <div class="side-box-title">♪ BGM</div>
+      <div class="side-box-body">
+        <div style="font-size:11px;color:#cc99ff;background:#220033;border:1px solid #9933cc;padding:6px;display:flex;flex-direction:column;gap:5px;">
+          <span>♪ <span id="bgm-title">---</span></span>
+          <button onclick="toggleBGM()" id="bgm-btn" style="background:#9933cc;color:#fff;border:none;font-family:inherit;font-size:11px;padding:3px 10px;cursor:pointer;">▶ 재생</button>
+          <audio id="bgm" loop></audio>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-box">
+      <div class="side-box-title">✦ MENU</div>
+      <div class="side-box-body">
+        <div class="side-menu">
+          <a href="#notice">📌 공지</a>
+          <a href="#dreamcast">🌸 드림캐 소개</a>
+          <a href="#relation">💫 관계성</a>
+          <a href="#setting">🌍 세계 설정</a>
+          <a href="#timeline">📅 타임라인</a>
+          <a href="#board">📝 게시판</a>
+          <a href="#guestbook">✉ 방명록</a>
+          <a href="#minigame">🎮 미니게임</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-box">
+      <div class="side-box-title">🌸 캐릭터</div>
+      <div class="side-box-body">
+        <div class="mini-chara">
+          <span class="chara-face">🌸</span>
+          드림주<br>
+          <strong style="color:#cc3366;">이름 미정</strong><br>
+          <span style="font-size:10px;color:#999;">클릭하면 소개!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-box">
+      <div class="side-box-title">📅 최근 업데이트</div>
+      <div class="side-box-body" style="font-size:10px;line-height:1.9;color:#660055;">
+        <span class="blink">NEW</span> 홈피 오픈!<br>
+        20xx.xx.xx 방명록 개설<br>
+        20xx.xx.xx 타임라인 추가
+      </div>
+    </div>
+
+    <div class="side-box">
+      <div class="side-box-title">🔗 링크</div>
+      <div class="side-box-body">
+        <div class="side-menu">
+          <a href="#">링크 추가 예정</a>
+          <a href="#">링크 추가 예정</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="main">
+
+    <div class="panel panel-pink" id="notice">
+      <div class="panel-head">📌 NOTICE / 공지사항</div>
+      <div class="panel-body">
+        <div class="notice-inner">홈페이지를 오픈했습니다! 앞으로 천천히 채워갈 예정입니다.</div>
+        <div class="notice-inner">방명록 / 드림캐 소개 / 관계 타임라인 준비 중입니다.</div>
+        <div style="font-size:11px;color:#996699;margin-top:6px;">※ 무단 전재 및 캐릭터 도용 금지 &nbsp;<span class="blink">★ NOW OPEN ★</span></div>
+      </div>
+    </div>
+
+    <div class="earth-section">
+      <span class="e-star" style="top:12%;left:8%;animation-delay:0s;">✦</span>
+      <span class="e-star" style="top:20%;left:85%;animation-delay:0.5s;">★</span>
+      <span class="e-star" style="top:65%;left:15%;animation-delay:1s;">·</span>
+      <span class="e-star" style="top:75%;left:80%;animation-delay:1.5s;">✦</span>
+      <span class="e-star" style="top:40%;left:5%;animation-delay:0.8s;">*</span>
+      <span class="e-star" style="top:50%;left:90%;animation-delay:1.2s;">·</span>
+      <div class="earth-obj" id="earth-btn" title="클릭해봐"></div>
+      <div class="earth-caption">― 세계의 끝이 어디든, 여기는 존재한다 ―</div>
+    </div>
+
+    <div class="panel panel-purple" id="dreamcast">
+      <div class="panel-head">🌸 드림캐 소개</div>
+      <div class="panel-body">
+        <div class="dc-grid">
+          <div class="dc-card" onclick="alert('드림주 소개 준비 중입니다!')">
+            <div class="dc-img">🌸</div>
+            <div class="dc-name">드림주</div>
+            <div class="dc-tag">이름 미정</div>
+          </div>
+          <div class="dc-card" onclick="alert('드림캐 소개 준비 중입니다!')">
+            <div class="dc-img">✦</div>
+            <div class="dc-name">드림캐 1</div>
+            <div class="dc-tag">이름 미정</div>
+          </div>
+          <div class="dc-card" onclick="alert('드림캐 소개 준비 중입니다!')">
+            <div class="dc-img">🌙</div>
+            <div class="dc-name">드림캐 2</div>
+            <div class="dc-tag">이름 미정</div>
+          </div>
+          <div class="dc-card" onclick="alert('추가 예정입니다.')">
+            <div class="dc-img" style="color:#ccaacc;">＋</div>
+            <div class="dc-name">추가 예정</div>
+            <div class="dc-tag">---</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-blue" id="relation">
+      <div class="panel-head">💫 드림 관계성</div>
+      <div class="panel-body">
+        <table class="rel-table">
+          <tr><th>캐릭터</th><th>관계</th><th>한 줄 설명</th></tr>
+          <tr><td>드림주</td><td>주인공</td><td>준비 중입니다.</td></tr>
+          <tr><td>드림캐 1</td><td>작성 예정</td><td>준비 중입니다.</td></tr>
+          <tr><td>드림캐 2</td><td>작성 예정</td><td>준비 중입니다.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel panel-yellow" id="setting">
+      <div class="panel-head">🌍 세계 설정</div>
+      <div class="panel-body">
+        <span style="color:#997700;">세계관 설정을 여기에 작성하세요.</span><br>
+        <span style="font-size:11px;color:#bbaa33;">준비 중입니다.</span>
+      </div>
+    </div>
+
+    <div class="panel panel-green" id="timeline">
+      <div class="panel-head">📅 관계 타임라인</div>
+      <div class="panel-body">
+        <div class="tl-wrap">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">20xx.xx.xx</div>
+            <div class="tl-text">처음 만난 날. 내용 작성 예정.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">20xx.xx.xx</div>
+            <div class="tl-text">두 번째 사건. 내용 작성 예정.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">20xx.xx.xx</div>
+            <div class="tl-text">추가 예정.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-pink" id="board">
+      <div class="panel-head">📝 게시판</div>
+      <div class="panel-body">
+        <span style="color:#996699;">게시글 기능 준비 중입니다.</span>
+      </div>
+    </div>
+
+    <div class="panel panel-purple" id="guestbook">
+      <div class="panel-head">✉ 방명록</div>
+      <div class="panel-body">
+        <div class="gb-list" id="gb-list">
+          <div class="gb-entry">
+            <div class="gb-header">
+              <span class="gb-num">No.1</span>
+              <span class="gb-author">운영자</span>
+              <span class="gb-date">20xx.xx.xx</span>
+            </div>
+            <div class="gb-msg">방명록 오픈했어요! 편하게 남겨주세요 ♪</div>
+          </div>
+        </div>
+        <div class="gb-form">
+          <label>이름</label>
+          <input type="text" id="gb-name" placeholder="이름을 입력해주세요" maxlength="20">
+          <label>내용</label>
+          <textarea id="gb-msg-input" placeholder="내용을 입력해주세요."></textarea>
+          <button class="btn-submit" onclick="submitGB()">✦ 남기기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-earth" id="minigame">
+      <div class="panel-head">🎮 미니게임</div>
+      <div class="panel-body">
+        <div class="minigame-area" onclick="alert('미니게임 준비 중입니다!\n\n힌트: 하늘의 지구를 찾아보세요.')">
+          [ MINI GAME — COMING SOON ]
+        </div>
+        <div style="font-size:10px;color:#336699;margin-top:6px;">※ 힌트: 지구를 찾아보세요.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="footer">
+  ✦ © 희진의 드림 세계 — 무단 전재 / 캐릭터 도용 금지 ✦<br>
+  <span style="font-size:10px;color:#aa6688;">since 20xx &nbsp;|&nbsp; last update: 20xx.xx.xx</span>
+</div>
+
+<script>
+let v=parseInt(localStorage.getItem('hj_v')||'0')+1;
+localStorage.setItem('hj_v',v);
+document.getElementById('vcnt').textContent=String(v).padStart(6,'0');
+
+let gbCount=1;
+function submitGB(){
+  const name=document.getElementById('gb-name').value.trim();
+  const msg=document.getElementById('gb-msg-input').value.trim();
+  if(!name||!msg){alert('이름과 내용을 입력해주세요.');return;}
+  gbCount++;
+  const now=new Date();
+  const date=`${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}`;
+  const div=document.createElement('div');
+  div.className='gb-entry';
+  div.innerHTML=`<div class="gb-header"><span class="gb-num">No.${gbCount}</span><span class="gb-author">${name}</span><span class="gb-date">${date}</span></div><div class="gb-msg">${msg.replace(/</g,'&lt;')}</div>`;
+  document.getElementById('gb-list').appendChild(div);
+  document.getElementById('gb-name').value='';
+  document.getElementById('gb-msg-input').value='';
+}
+
+function toggleBGM(){
+  const a=document.getElementById('bgm');
+  const b=document.getElementById('bgm-btn');
+  if(a.paused){a.play().catch(()=>{});b.textContent='■ 정지';document.getElementById('bgm-title').textContent='BGM 제목';}
+  else{a.pause();b.textContent='▶ 재생';}
+}
+
+document.getElementById('earth-btn').addEventListener('click',openSecret);
+
+let tc=0;
+document.getElementById('site-title').addEventListener('click',()=>{tc++;if(tc>=10){openSecret();tc=0;}});
+
+const K=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+let ki=0;
+document.addEventListener('keydown',e=>{if(e.key===K[ki]){ki++;if(ki===K.length){openSecret();ki=0;}}else ki=0;});
+
+function openSecret(){document.getElementById('secret').style.display='block';}
+document.getElementById('secret-close').addEventListener('click',()=>{document.getElementById('secret').style.display='none';});
+
+const sym=['★','✦','♡','·','*','☆','♪'];
+document.addEventListener('mousemove',e=>{
+  if(Math.random()>0.88){
+    const s=document.createElement('span');
+    s.className='spark';s.textContent=sym[Math.floor(Math.random()*sym.length)];
+    s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';
+    s.style.color=`hsl(${Math.random()*360},90%,65%)`;
+    document.body.appendChild(s);setTimeout(()=>s.remove(),700);
+  }
+});
+</script>
+</body>
+</html>
