@@ -2,28 +2,33 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        body { background-color: #000080; color: #FFFFFF; font-family: "MS Gothic", "돋움"; font-size: 9pt; padding: 10px; }
-        a { color: #FFFF00; text-decoration: none; font-weight: bold; }
-        a:hover { color: #FF00FF; text-decoration: underline; }
-        .box { border: 1px double #FFFFFF; padding: 5px; margin-bottom: 10px; text-align: center; }
+        body { background-color: #D1E0F0; color: #000080; font-family: "MS Gothic", "돋움"; font-size: 10pt; padding: 10px; }
+        a { color: #0000FF; text-decoration: none; font-weight: bold; }
+        a:hover { color: #FF0000; text-decoration: underline; }
+        .menu-box { border: 2px solid #000080; background-color: #FFFFFF; padding: 10px; margin-bottom: 15px; }
+        .menu-title { background-color: #000080; color: #FFFFFF; text-align: center; font-weight: bold; padding: 3px; margin-bottom: 8px; }
+        .icon { font-family: "MS Gothic"; font-size: 12pt; margin-right: 5px; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <b>(v^ー°) MENU</b>
+    <div class="menu-box">
+        <div class="menu-title">★ MENU ★</div>
+        <p align="left">
+            <span class="icon">★</span><a href="main.html" target="main_frame">HOME</a><br><br>
+            <span class="icon">▶</span><a href="profile.html" target="main_frame">PROFILE</a><br><br>
+            <span class="icon">▼</span><a href="#" target="main_frame">STORY</a><br><br>
+            <span class="icon">✉</span><a href="#" target="main_frame">GUESTBOOK</a><br><br>
+            <span class="icon">♣</span><a href="#" target="main_frame">GAME</a>
+        </p>
     </div>
-    <p align="center">
-        <a href="main.html" target="main_frame">HOME</a><br><br>
-        <a href="profile.html" target="main_frame">PROFILE</a><br><br>
-        <a href="#" target="main_frame">STORY</a><br><br>
-        <a href="#" target="main_frame">GUESTBOOK</a><br><br>
-        <a href="#" target="main_frame">GAME</a>
-    </p>
-    <hr color="#FFFFFF" size="1">
+    <hr color="#000080" size="1">
     <div align="center">
-        <font size="1">SINCE 2026.04.13</font><br>
-        <table border="1" bordercolor="#FF0000" bgcolor="#000000">
-            <tr><td><font color="#00FF00" face="Courier New">000413</font></td></tr>
+        <font size="1">SINCE 2026.04.13</font><br><br>
+        <table border="1" bordercolor="#000000" cellpadding="2" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+                <td align="right"><font color="#FF0000" face="Courier New" size="3">000</font></td>
+                <td align="right"><font color="#00FF00" face="Courier New" size="3">413</font></td>
+            </tr>
         </table>
         <font size="1">COUNTER</font>
     </div>
